@@ -1,0 +1,847 @@
+<html>
+<head>
+<title>menu</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body{
+        margin: :0;
+    }
+    .font-size{
+      font-size:30px;
+      margin-right: 100px;
+      margin-top: 30px;
+      margin-left: 2px;
+    }
+    .margin-top{
+        vertical-align: middle;
+        margin-top: 5px;
+        margin-left: 7px;
+    }
+    hr{
+      height: 10px;
+      border:0;
+      box-shadow: 0 10px 10px -10px #8c8b8b inset;
+    }
+    .button1{
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            background-color:rgb(25, 154, 120) ;
+            border-radius: 30px;
+            padding: 10px;
+            margin-left:40px;
+            margin-right: 15px;
+    }
+    .cart-button{
+        margin-left:20px;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        background-color:rgb(25, 154, 120) ;
+        border-radius: 5px;
+        padding: 10px;
+        margin-top: 45px;
+        border: 0px;
+        height: 35px;
+        width: 35px;
+    }   
+    .cart-button:hover, .cart-button1:hover{
+            color: rgb(255, 255, 255) ;
+            background-color: rgb(0, 0, 0);
+    }
+    .button1:hover{
+            background-color: black;
+            color: white;
+    }
+    .badge {
+            position: relative;
+            top: -15px;
+            left: -30px;
+            background-color:black;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 5px;
+            font-size: 10px;
+        }
+    .header .search-form{
+      border: 0px;
+      position: absolute;
+      top: 10%;
+      right:1rem;
+      width: 400px;
+      height: 30px;
+      background: #fff;
+      border-radius: 5px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      box-shadow: var(--box-shadow);
+    }
+    .header .search-form input{
+      height: 100%;
+      width: 100%;
+      background: none;
+      text-transform: none;
+      font-size: 1rem;
+      color: var(--black);
+      padding: 0 1.5rem;
+    }
+    .header .search-form label{
+      font-size: 1.2rem;
+      padding-right: 1.5rem;
+      color: var(--black);
+      cursor: pointer;
+      margin-left: 4px;
+    }
+    .header .search-form label:hover{
+      color: rgb(25, 154, 120);
+    }
+    .heading{
+      text-align: center;
+      padding: 2rem 0;
+      font-size: 2.5rem;
+      color:rgb(197, 70, 70) ;
+    }
+    .heading span{
+      background-color: rgb(255, 255, 255) ;
+      border-radius: 20px;
+    }
+    #category,#popular-product, #popular-bakery{
+      display: flex;
+      flex-direction: column;
+      max-width: 1000px;
+      margin: 50px auto;
+    }
+    .category-heading{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .product-heading, .bakery-heading{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .category-heading h2, .product-heading h3, .bakery-heading h3{
+      font-size: 1.56rem;
+      font-weight: 900;
+      color: black;
+      letter-spacing: 0.5px;
+    }
+    .food-heading h3{
+      font-size: 3rem;
+      text-align: left;
+    }
+    .category-heading span, .product-heading span, .bakery-heading span{
+      color: rgb(0, 0, 0);
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+    .category-container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 20px;
+    }
+    .category-box{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: rgb(255, 255, 255);
+      border-radius: 10px;
+      min-height: 130px;
+      width: 120px;
+      border: 0px solid black;
+      margin-left: 20px;
+    }
+    .category-box img{
+      height: 45px;
+      width: 50px;
+      object-fit: contain;
+      object-position: center;
+      transition: all ease 0.1s;
+    }
+    .category-box span{
+      color: #393939;
+      font-size: 0.8rem;
+      margin-top: 10px;
+      letter-spacing: 0.3px;
+      font-weight: 600;
+    }
+    .category-box:hover img, .order-btn:hover{
+      transform: scale(1.1);
+      transition: all ease 0.1s;
+    }
+    #popular-product, #popular-bakery{
+      margin: 80px auto;
+    }
+    .product-container{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap: 60px;
+      margin: 40px 0px;
+    }
+    .product-box, .bakery-box{
+      width: 90%;
+      border: 1px solid #eeeeee;
+      background-color: white;
+      padding: 20px;
+      border-radius: 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .product-box:hover, .bakery-box:hover{
+      transform: scale(1.1);
+      transition: all ease 0.1s;
+    }
+    .product-box img, .bakery-box img{
+      width: 90%;
+      height:150px;
+      object-fit: contain;
+      object-position: center;
+      margin: auto;
+    }
+    .product-box strong, .bakery-box strong{
+      color: #2020202;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      font-weight:600;
+      margin-top:10px;
+    }
+    .product-box .price, .bakery-box .price{
+      margin-top: 10px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #000000;
+    }
+    .product-box .cart-btn, .bakery-box .cart-btn{
+      width: 100%;
+      height: 40px;
+      justify-content: center;
+      display: flex;
+      align-items: center;
+      background-color: rgb(239, 233, 233);
+      color: rgb(25, 154, 120);
+      margin-top: 20px;
+      transition: all ease 0.2s;
+      border: white;
+    }
+    .product-box .cart-btn i, .bakery-box .cart-btn i{
+      margin-right: 5px;
+    }
+    .product-box .cart-btn:hover, .bakery-box .cart-btn:hover{
+      color: rgb(255, 255, 255) ;
+      background-color: rgb(0, 0, 0);
+      transition: all ease 0.2s;
+    }
+    .badge {
+            position: relative;
+            top: -20px;
+            left: -20px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 3px 5px;
+            font-size: 10px;
+    }
+    .btn{
+      border: 0px;
+    }
+    .bakery-container{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;  
+      grid-gap: 50px;
+      margin: 0px auto;
+    }
+    .cart-button1{
+      margin-left:400px;
+      color: rgb(255, 255, 255);
+      cursor: pointer;
+      background-color:rgb(25, 154, 120) ;
+      border-radius: 5px;
+      padding: 10px;
+      margin-top: 45px;
+      border: 0px;
+      height: 35px;
+      width: 35px;
+      align-items: center;
+    }
+    #popular-food{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 1190px;
+      margin: 50px auto;
+      padding: 60px 0px 20px 0px;
+      background-color: rgb(226, 238, 235);
+      border: 1px sloid #f3f3f3;
+      align-items: center;
+      border-radius: 10px;
+    }
+    #review{
+      display:flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgb(251, 249, 249);
+      padding: 80px 0px;
+      margin: 40px 0px;
+      border-top: 1px solid #f3f3f3;
+      border-bottom: 1px solid #f3f3f3;
+    }
+    .review-heading h2{
+       font-size: 1.56rem;
+       color: #000000;
+       font-weight: 700;
+       letter-spacing: 0.5px;
+    }
+    .review-box-container{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-gap:20px;
+      width: 90%;
+      margin-top: 40px;
+    }
+    .review-box{
+      background-color: #fff;
+      padding: 30px 20px;
+      border: 1px solid #1f1f1f;
+      box-shadow: 2px 2px 50px rgba(0,0,0,0,05);
+      border-radius: 0px 30px 0px 30px;
+      margin-left: 70px;
+    }
+    .client-profile{
+      display: flex;
+      align-items: center;
+    }
+    .client-profile img{
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 50%;
+    }
+    .profile-text{
+      display: flex;
+      flex-direction: column;
+      margin-left: 10px;
+    }
+    .profile-text strong{
+      color:#393939 ;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    .rating{
+      display: flex;
+    }
+    .rating i{
+      color: #fdcc0d;
+    }
+    .review-box p{
+      color: #7c7c7c;
+    }
+    footer{
+      background-color: #1b1d1f;
+      padding: 50px 20px;
+      border-top: 5px solid #4eb060;
+    }
+    .footer-logo{
+      color: #ffffff;
+      font-size: 1.4rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    .footer-logo a{
+      color: #fff;
+      margin-left: 50px;
+    }
+    .footer-container{
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .footer-logo a span{
+      color: #4eb060;
+    }
+    .footer-social{
+      display: flex;
+      margin-top: 10px;
+    }
+    .footer-social a{
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      border: 1px solid #ffffff15;
+      font-size: 0.9rem;
+      margin: 0px 5px;
+    }
+    footer p{
+      color: white;
+      text-align: center;
+      font-size: 13px;
+    }
+    #search-banner{
+      max-width: 1250px;
+      height: 500px;
+      border-radius: 30px;
+      background-color: #da0032;
+      margin: 10px auto;
+      position: relative;
+    }
+    .bg-1{
+      position: absolute;
+      left: 20px;
+      top: 0px;
+      width: 570px;
+      height: 500px;
+      object-fit: contain;
+      object-position: center;
+    }
+    .text1{
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+      margin-left: 600px;
+      position: relative;
+    }
+    .text1 h1{
+      line-height: 55px;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .text2{
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+      margin-left: 100px;
+      position: relative;
+    }
+    .text2 h1{
+      line-height: 55px;
+      font-family:Georgia, 'Times New Roman', Times, serif;
+    }
+    .bg-2{
+      position: absolute;
+      left: 650px;
+      top: 0px;
+      width: 570px;
+      height: 500px;
+      object-fit: contain;
+      object-position: center;
+    }
+  </style>
+</head>
+<body>
+    <header class="header">
+        <img class="margin-top" src="https://seeklogo.com/images/S/starbucks-logo-69391AB0A9-seeklogo.com.png" height="70px" width="70px"> 
+        <span class="font-size"><b>Starbucks</b></span>
+        <button class="cart-button1"><div class="fa fa-gift" id="cart-btn"></button>
+          <button class="cart-button"><div class="fa fa-shopping-cart" id="cart-btn"></div><span class="badge" id="cartCount">0</span></button>
+        <form class="search-form">
+          <input type="search" id="search-box" placeholder="Search Here....">
+          <label for="search-box" class="fa fa-search"></label>
+          </form>
+        <hr>   
+    </header>
+    <section id="search-banner" style="background-color: #da0032">
+      <img src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-87853.png" class="bg-1" alt="bg">
+      <div class="text1">
+        <h1 style="color: white;font-size: 3rem;">COZY NEW CHAI!</h1>
+          <h1  style="color: rgb(255, 255, 255);font-size: 2rem;">Today calls for a Gingerbread Oatmilk Chai with warming spices and the festive flavor of gingerbread.</h1>
+          <button class="order-btn" style="width: 100px; background-color: #da0032;height: 40px;border-radius: 20px;border: 1px solid rgb(255, 255, 255);cursor: pointer;color:rgb(255, 255, 255);margin-left: 200px;">Order Now</button>
+      </div>
+    </section>
+
+    <section id="search-banner" style="background-color: #006341">
+      <img src="https://content-prod-live.cert.starbucks.com/binary/v2/asset/137-87802.jpg" class="bg-2" alt="bg">
+      <div class="text2">
+        <h1 style="color: rgb(255, 255, 255);font-size: 3rem;">Half off for the holidays</h1>
+          <h1  style="color: rgb(255, 255, 255);font-size: 1.3rem">Feeling festive? Starbucks® Rewards members can get half off a drink on Thursday afternoons (12-6 PM) in December.*</h1>
+          <button class="order-btn" style="width: 100px; background-color:#006341;height: 40px;border-radius: 20px;border: 1px solid rgb(255, 255, 255);cursor: pointer;color: rgb(255, 255, 255);margin-left: 200px;">Join For Free</button>
+      </div>
+    </section>
+    <!--category-->
+    <section id="category">
+      <div class="category-heading">
+        <h2>Category</h2>
+        <span>All</span>
+      </div>
+    <!--box container-->
+    <div class="category-container">
+      <a href="#" class="category-box">
+        <img src="https://icons-for-free.com/iconfiles/png/512/coffee+coffee+cup+coffee+to+go+cup+starbucks+to+go+icon-1320086033473759593.png">
+        <span>Coffee</span>
+      </a>
+
+      <a href="#" class="category-box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkR3agkDDtrPZopjMafVNG0EiJAZH2yIY3Gg&usqp=CAU">
+        <span>Tea</span>
+      </a>
+
+      <a href="#" class="category-box">
+        <img src="https://t3.ftcdn.net/jpg/02/36/03/66/360_F_236036622_ctUjaJTkIANvk9pJh0s5ZJRDWbM8ggT9.jpg">
+        <span>Food</span>
+      </a>
+
+      <a href="#" class="category-box">
+        <img src="https://cdn-icons-png.flaticon.com/512/4421/4421199.png">
+        <span>Desserts</span>
+      </a>
+
+      <a href="#" class="category-box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRpm0HtNdD_QZkVMS2x9MT1usqsdbkPVqke8Q&usqp=CAU">
+        <span>Bakery</span>
+      </a>
+    </div>
+  </section>
+  <!--product-->
+
+  <section id="popular-product">
+    <div class="product-heading">
+      <h3>Popular Beverages</h3>
+      <span>All</span>
+    </div>
+    <div class="product-container">
+    <div class="product-box">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVD2oUNDz1eAce9rSWt0JxayHkgMEhX4d0kbOVF6sufIVziFFRC4_BNXhg5mCpj71GLjE&usqp=CAU" alt="caffe mocha">
+      <strong>Caffe Mocha</strong>
+      <span class="price">Rs.330</span>
+      <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+        <i class="fa fa-shopping-bag"></i>Add to Cart
+      </a></button>
+    </div>
+
+    <div class="product-box">
+      <img src="https://www.aldi.us/fileadmin/_processed_/5/e/csm_701988-starbucks-iced-vanilla-coffee-detail_5293e246e2.jpg" alt="Vanilla Latte">
+      <strong>Vanilla Latte</strong>
+      <span class="price">Rs.250</span>
+      <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+        <i class="fa fa-shopping-bag"></i>Add to Cart
+      </a></button>
+    </div>
+
+    <div class="product-box">
+      <img src="https://www.luluhypermarket.com/cdn-cgi/image/f=auto/medias/661788-01.jpg-1200Wx1200H?context=bWFzdGVyfGltYWdlc3w1NjI0NjJ8aW1hZ2UvanBlZ3xhR0ppTDJnNE1TOHhOVEE0TlRJM01ETTJPREk0Tmk4Mk5qRTNPRGd0TURFdWFuQm5YekV5TURCWGVERXlNREJJfDc4YjFjNWY4ZTliNGVhM2MzZjcwODFjNDM1NzM0OTE4Njk5ZGM5NTgwZDIzNGM5ZjRlYzU0MGI3YWZhYmQwYWI" alt="chocolate mocha">
+      <strong>Chocolate Mocha</strong>
+      <span class="price">Rs.320</span>
+      <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+        <i class="fa fa-shopping-bag"></i>Add to Cart
+      </a></button>
+    </div>
+
+    <div class="product-box">
+      <img src="https://hips.hearstapps.com/delish/assets/cm/15/10/54f96686e95a9_-_strawberrycheesecake2.jpg" alt="Strawberry Frappuccino">
+      <strong>Strawberry Frappuccino</strong>
+      <span class="price">Rs.255</span>
+      <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+        <i class="fa fa-shopping-bag"></i>Add to Cart
+      </a></button>
+    </div>
+
+    <div class="product-box">
+      <img src="https://images-cdn.ubuy.co.in/633b1ae2bb0f9f4070312ffc-starbucks-iced-latte-limited-edition.jpg" alt="pumpkin spice latte">
+      <strong>Pumpkin Spice Latte</strong>
+      <span class="price">Rs.300</span>
+      <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+        <i class="fa fa-shopping-bag"></i>Add to Cart
+      </a></button>
+    </div>
+
+    <div class="product-box">
+      <img src="https://www.sweetsteep.com/wp-content/uploads/2019/05/iced-chai-latte-starbucks-recipe-e1558549336331-735x1103.jpg" alt="chai latte">
+      <strong>Chai Latte</strong>
+      <span class="price">Rs.330</span>
+      <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+        <i class="fa fa-shopping-bag"></i>Add to Cart
+      </a></button>
+    </div>
+
+    </div>
+
+  </section>
+
+</section>
+
+<!--food-->
+
+<section id="popular-food">
+  <div class="food-heading">
+    <h3><strong>Everything At Just 160!</strong></h3>
+  </div>
+  <div class="product-container">
+  <div class="product-box">
+    <img src="https://hips.hearstapps.com/del.h-cdn.co/assets/16/13/2048x1536/sd-aspect-1459726182-delish-pesto-panini-1.jpg?resize=1200:*" alt="pesto and mozarella sandwich">
+    <strong>Pesto & mozarella sandwich</strong>
+    <span class="price">Rs.160</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="product-box">
+    <img src="https://img-global.cpcdn.com/recipes/ff1d50a95e4ead44/1200x630cq70/photo.jpg" alt="red velvet cake">
+    <strong>Red Velvet</strong>
+    <span class="price">Rs.160</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="product-box">
+    <img src="https://pyxis.nymag.com/v1/imgs/8a0/90c/64c6958a826b9945b9231cd28b18aac6d7-07-starbucks-sausage-cheddar.2x.h473.w710.jpg" alt="Sausage and Cheddar">
+    <strong>Sausage and Cheddar</strong>
+    <span class="price">Rs.160</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="product-box">
+    <img src="https://www.cookingforkeeps.com/wp-content/uploads/2021/03/Chicken-and-Chorizo-Pasta-1.jpg" alt="Strawberry Frappuccino">
+    <strong>Spicy Chorizo Pasta</strong>
+    <span class="price">Rs.160</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="product-box">
+    <img src="https://thebigmansworld.com/wp-content/uploads/2022/06/starbucks-spinach-feta-wrap3.jpeg" alt="egg white wrap">
+    <strong>Spinach,Feta  Egg White Wrap</strong>
+    <span class="price">Rs.160</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="product-box">
+    <img src="https://caloriecap.com/media/k2/items/cache/3f73012f8f1227a09aba1d8bf263da2c_XL.jpg" alt="chicken sausage and bacon biscuit">
+    <strong>Chicken Sausage and Bacon Bscuit</strong>
+    <span class="price">Rs.160</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  </div>
+
+</section>
+
+<!--bakery-->
+
+<section id="popular-bakery">
+  <div class="bakery-heading">
+    <h3>Bakery & Desserts</h3>
+    <span>All</span>
+  </div>
+  <div class="bakery-container">
+  <div class="bakery-box">
+    <img src="https://littlesunnykitchen.com/wp-content/uploads/2023/04/Cheese-Danish-1.jpg" alt="cheese danish">
+    <strong>Cheese Danish</strong>
+    <span class="price">Rs.330</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://www.jocooks.com/wp-content/uploads/2019/03/lemon-blueberry-scones-1-24.jpg" alt="blueberry scone">
+    <strong>Blueberry Scone</strong>
+    <span class="price">Rs.250</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://cakesbymk.com/wp-content/uploads/2023/01/Template-Size-for-Blog-Photos-15.jpg" alt="brownie">
+    <strong>Brownie</strong>
+    <span class="price">Rs.320</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://sallysbakingaddiction.com/wp-content/uploads/2017/01/lemon-pound-cake-loaf.jpg" alt="iced lemon loaf">
+    <strong>Iced Lemon Loaf</strong>
+    <span class="price">Rs.255</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://1.bp.blogspot.com/-NhvbvP9aKJI/XwY_alDL_hI/AAAAAAAAyxA/D1obMOUbBTomMTrwQfq67-QRr9CNJ5UigCLcBGAsYHQ/s1600/Lemon-Coconut-Bars-Image%2B2.JPG" alt="Lemon Cocunut bar">
+    <strong>Lemon Cocunut Bar</strong>
+    <span class="price">Rs.260</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://www.jocooks.com/wp-content/uploads/2021/05/glazed-donuts-1-2.jpg" alt="glazed doughnut">
+    <strong>Glazed Doughnut</strong>
+    <span class="price">Rs.190</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://images.aws.nestle.recipes/original/2020_06_23T11_59_08_mrs_ImageRecipes_144769lrg.jpg" alt="pumpkin muffin">
+    <strong>Pumpkin Muffin</strong>
+    <span class="price">Rs.300</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://www.kitchensanctuary.com/wp-content/uploads/2017/04/Almond-Croissants-Square-FS-31.jpg" alt="almond croissant">
+    <strong>Almond Croissant</strong>
+    <span class="price">Rs.330</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSQnSkXN0x_EvCPdxJINPHHgLPvgAJNrzibA&usqp=CAU" alt="cookies">
+    <strong>Cookies</strong>
+    <span class="price">Rs.250</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://www.thecookierookie.com/wp-content/uploads/2017/05/sheet-pan-chocolate-croissants-3-of-10-1-500x375.jpg" alt="chocolate croissant">
+    <strong>Chococlate Croissant</strong>
+    <span class="price">Rs.210</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://globalassets.starbucks.com/digitalassets/products/food/SBX20220125_CookiesAndCreamCakePop.jpg?impolicy=1by1_medium_630" alt="cake pop">
+    <strong>C&C Cake Pop</strong>
+    <span class="price">Rs.140</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  <div class="bakery-box">
+    <img src="https://sugarspunrun.com/wp-content/uploads/2022/05/The-Best-coffee-cake-recipe-1-of-1.jpg" alt="coffee cake">
+    <strong>Coffee Cake</strong>
+    <span class="price">Rs.260</span>
+    <button class="btn" onclick="addItem()" style="background-color: rgb(254, 254, 254);border-radius: 30px;"><a href="#" class="cart-btn">
+      <i class="fa fa-shopping-bag"></i>Add to Cart
+    </a></button>
+  </div>
+
+  </div>
+</section>
+
+<!--reviews-->
+
+<section id="review">
+  <div class="review-heading">
+    <h2>Customer Reviews</h2>
+
+  <div class="review-box-container">
+    <div class="review-box">
+      <div class="client-profile">
+      <img src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/10/15/1413370038353/6b201310-38d0-49a5-b2b3-70b89fb6a1e6-bestSizeAvailable.jpeg?width=445&dpr=1&s=none" alt="client">
+      <div class="profile-text">
+        <strong>Lily Walker</strong>
+
+      </div>
+    </div>
+
+    <div class="rating">
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+      <i class="fa fa-star"></i>
+    </div>
+    <p>It's nice like all Starbucks with good food and coffee/tea. We loved every item we ordered - the pita bread was "yum" ! so was the veggie wrap. loved it.</p>
+  </div>
+
+  <div class="review-box">
+    <div class="client-profile">
+    <img src="https://cdn-icons-png.flaticon.com/512/9131/9131529.png" alt="client">
+    <div class="profile-text">
+      <strong>Sahil</strong>
+
+    </div>
+  </div>
+
+  <div class="rating">
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+    <i class="fa fa-star"></i>
+  </div>
+  <p>I’m on this kick of drinking 5 cups of warm water. I work for Instacart right now and every location of Starbucks I was given free hot water because I asked for it without being charged. I really appreciate Starbucks for giving me the opportunity to do such thing. That’s why I give them five stars. They fully have my support. They’re super nice and professional and the coffee is great. Go to Starbucks.</p>
+</div>
+
+<div class="review-box">
+  <div class="client-profile">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLhxbFPz8Na7QuWzqAo220EBant-vnSSfxqA&usqp=CAU" alt="client">
+  <div class="profile-text">
+    <strong>Anil Chatterjee</strong>
+
+  </div>
+</div>
+
+<div class="rating">
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+  <i class="fa fa-star"></i>
+</div>
+<p>Me and my friend were at Starbucks and my card didn’t work. Thankful the worker there, paid for our drinks. And was very nice about it, it didn’t seem to bother him that he paid for our drinks. This made my day, but made me look like a fool because my card didn’t work. All thanks to Dillon. At Shoreline WA in Safeway. Thank you so much Dillon for the help, support and, kindness. I rate this 1000/10 if I could but, other than that, 10/10.</p>
+</div>
+
+  </div>
+
+</section>
+
+<!--footer-->
+<footer>
+  <div class="footer-container">
+    <div class="footer-logo">
+      <a href="#"><span>©</span>Starbucks</a>
+
+      <div class="footer-social">
+        <a href="https://www.facebook.com/Starbucks/"><i class="fa fa-facebook-f"></i></a>
+        <a href="https://twitter.com/starbucks?lang=en"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.youtube.com/starbucks"><i class="fa fa-youtube"></i></a>
+        <a href="https://www.instagram.com/starbucks/?hl=en"><i class="fa fa-instagram"></i></a>
+      </div>
+    </div>
+
+  </div>
+  <p>© 2023 Starbucks Coffee Company. All rights reserved.</p>
+</footer>
+  <script>
+    let count = 0;
+    function addItem() {
+        count++;
+        document.getElementById('cartCount').textContent = count;
+    }
+</script>
+
+</body>
+</html>
